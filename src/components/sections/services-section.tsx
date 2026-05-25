@@ -1,5 +1,38 @@
 import { useReveal } from "@/hooks/use-reveal"
 
+const services = [
+  {
+    title: "Дизайн-проект",
+    description:
+      "Авторская концепция и полный комплект рабочей документации: планировки, чертежи, узлы, подбор материалов. Далее смета — и только потом визуализация. Чтобы не рисовать то, что невозможно реализовать.",
+    direction: "top",
+  },
+  {
+    title: "Комплектация",
+    description:
+      "Полный цикл от закупки до установки. Собственный склад, проверенные сборщики, налаженная логистика. Как официальный дилер ведущих европейских фабрик — управляю бюджетом с первого дня.",
+    direction: "right",
+  },
+  {
+    title: "Авторский надзор",
+    description:
+      "Контроль реализации лично — от первого гвоздя до последней детали. Выезжаю на объект, проверяю бригаду, слежу за комплектацией. Клиент узнаёт только о результате.",
+    direction: "left",
+  },
+  {
+    title: "Консультация",
+    description:
+      "Разовая помощь: подбор материалов, мебели, решений. Если нужен свежий взгляд — без полного проекта.",
+    direction: "bottom",
+  },
+  {
+    title: "Аудит проекта",
+    description:
+      "Проверяю чужие дизайн-проекты на ошибки: открывание дверей, эргономика, разумность материалов. Дешевле исправить на бумаге, чем переделывать на стройке.",
+    direction: "bottom",
+  },
+]
+
 export function ServicesSection() {
   const { ref, isVisible } = useReveal(0.3)
 
@@ -10,39 +43,20 @@ export function ServicesSection() {
     >
       <div className="mx-auto w-full max-w-7xl">
         <div
-          className={`mb-12 transition-all duration-700 md:mb-16 ${
+          className={`mb-6 transition-all duration-700 md:mb-10 ${
             isVisible ? "translate-y-0 opacity-100" : "-translate-y-12 opacity-0"
           }`}
         >
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
             Услуги
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Наши компетенции</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">
+            / от 2 500 до 8 000 ₽ за м² — стоимость рассчитывается индивидуально
+          </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 md:gap-x-16 md:gap-y-12 lg:gap-x-24">
-          {[
-            {
-              title: "Веб-разработка",
-              description: "Создание современных веб-приложений любой сложности",
-              direction: "top",
-            },
-            {
-              title: "UI/UX Дизайн",
-              description: "Проектирование удобных и красивых интерфейсов",
-              direction: "right",
-            },
-            {
-              title: "Мобильные приложения",
-              description: "Кроссплатформенная разработка для iOS и Android",
-              direction: "left",
-            },
-            {
-              title: "Консалтинг",
-              description: "Техническая экспертиза и стратегическое планирование",
-              direction: "bottom",
-            },
-          ].map((service, i) => (
+        <div className="grid gap-x-16 gap-y-6 md:grid-cols-2 lg:gap-x-24 lg:gap-y-8">
+          {services.map((service, i) => (
             <ServiceCard key={i} service={service} index={i} isVisible={isVisible} />
           ))}
         </div>
@@ -81,16 +95,14 @@ function ServiceCard({
   return (
     <div
       className={`group transition-all duration-700 ${getRevealClass()}`}
-      style={{
-        transitionDelay: `${index * 150}ms`,
-      }}
+      style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="mb-3 flex items-center gap-3">
+      <div className="mb-2 flex items-center gap-3">
         <div className="h-px w-8 bg-foreground/30 transition-all duration-300 group-hover:w-12 group-hover:bg-foreground/50" />
         <span className="font-mono text-xs text-foreground/60">0{index + 1}</span>
       </div>
-      <h3 className="mb-2 font-sans text-2xl font-light text-foreground md:text-3xl">{service.title}</h3>
-      <p className="max-w-sm text-sm leading-relaxed text-foreground/80 md:text-base">{service.description}</p>
+      <h3 className="mb-1.5 font-sans text-xl font-light text-foreground md:text-2xl">{service.title}</h3>
+      <p className="max-w-sm text-sm leading-relaxed text-foreground/75">{service.description}</p>
     </div>
   )
 }

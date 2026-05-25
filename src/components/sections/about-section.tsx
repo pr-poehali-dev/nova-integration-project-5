@@ -11,43 +11,47 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
     >
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid gap-8 md:grid-cols-2 md:gap-16 lg:gap-24">
-          {/* Left side - Story */}
+          {/* Left side - Ekaterina */}
           <div>
             <div
-              className={`mb-6 transition-all duration-700 md:mb-12 ${
+              className={`mb-6 transition-all duration-700 md:mb-10 ${
                 isVisible ? "translate-y-0 opacity-100" : "-translate-y-12 opacity-0"
               }`}
             >
-              <h2 className="mb-3 font-sans text-3xl font-light leading-[1.1] tracking-tight text-foreground md:mb-4 md:text-6xl lg:text-7xl">
-                Создаем
-                <br />
-                будущее
-                <br />
-                <span className="text-foreground/40">цифровых</span>
+              <div className="mb-6 h-72 w-56 overflow-hidden rounded-sm bg-foreground/10 md:h-80 md:w-64">
+                <div className="flex h-full w-full items-end justify-center bg-gradient-to-t from-foreground/20 to-foreground/5 p-4">
+                  <p className="font-mono text-xs text-foreground/40">фото Екатерины</p>
+                </div>
+              </div>
+              <h2 className="mb-1 font-sans text-2xl font-light tracking-tight text-foreground md:text-3xl">
+                Екатерина Горголо
               </h2>
+              <p className="font-mono text-sm text-foreground/60">
+                Автор дизайн-проектов, руководитель Studio Gorgolo
+              </p>
             </div>
 
             <div
-              className={`space-y-3 transition-all duration-700 md:space-y-4 ${
+              className={`transition-all duration-700 ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
               style={{ transitionDelay: "200ms" }}
             >
-              <p className="max-w-md text-sm leading-relaxed text-foreground/90 md:text-lg">
-                Мы команда дизайнеров, разработчиков и технологов, которые создают исключительные цифровые продукты.
+              <p className="max-w-md text-sm leading-relaxed text-foreground/85 md:text-base">
+                Я задаю вопросы, которые не задают другие. Нужен ли холодильник в ванной? Где вы предпочитаете читать? Мечтаете о собаке? Из этих деталей строится пространство — не из референсов.
               </p>
-              <p className="max-w-md text-sm leading-relaxed text-foreground/90 md:text-lg">
-                Каждый проект — это возможность исследовать новые решения и раздвигать границы возможного.
+              <p className="mt-3 max-w-md text-sm leading-relaxed text-foreground/85 md:text-base">
+                И делаю всё, чтобы пространство работало именно на вас — а не просто хорошо выглядело.
               </p>
             </div>
           </div>
 
-          {/* Right side - Stats with creative layout */}
+          {/* Right side - Stats */}
           <div className="flex flex-col justify-center space-y-6 md:space-y-12">
             {[
-              { value: "150+", label: "Проектов", sublabel: "Реализовано по всему миру", direction: "right" },
-              { value: "8", label: "Лет", sublabel: "Опыта и инноваций", direction: "left" },
-              { value: "12", label: "Наград", sublabel: "Отраслевое признание", direction: "right" },
+              { value: "24", label: "года", sublabel: "в интерьерном бизнесе", direction: "right" },
+              { value: "100+", label: "проектов", sublabel: "Реализовано по всей России", direction: "left" },
+              { value: "∞", label: "внимания", sublabel: "к каждой детали", direction: "right" },
             ].map((stat, i) => {
               const getRevealClass = () => {
                 if (!isVisible) {
@@ -74,21 +78,33 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
                 </div>
               )
             })}
-          </div>
-        </div>
 
-        <div
-          className={`mt-8 flex flex-wrap gap-3 transition-all duration-700 md:mt-16 md:gap-4 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-          }`}
-          style={{ transitionDelay: "750ms" }}
-        >
-          <MagneticButton size="lg" variant="primary" onClick={() => scrollToSection?.(4)}>
-            Начать проект
-          </MagneticButton>
-          <MagneticButton size="lg" variant="secondary" onClick={() => scrollToSection?.(1)}>
-            Смотреть работы
-          </MagneticButton>
+            <div
+              className={`mt-6 border-l border-foreground/20 pl-4 transition-all duration-700 md:mt-8 ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+              }`}
+              style={{ transitionDelay: "600ms" }}
+            >
+              <p className="mb-2 font-mono text-xs uppercase tracking-widest text-foreground/40">Философия</p>
+              <p className="max-w-xs text-sm italic leading-relaxed text-foreground/60">
+                «Соприкасаясь со мной, люди выбирают не дизайн. Они выбирают определённый способ жить.»
+              </p>
+            </div>
+
+            <div
+              className={`flex flex-wrap gap-3 transition-all duration-700 md:gap-4 ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+              }`}
+              style={{ transitionDelay: "750ms" }}
+            >
+              <MagneticButton size="lg" variant="primary" onClick={() => scrollToSection?.(5)}>
+                Обсудить проект
+              </MagneticButton>
+              <MagneticButton size="lg" variant="secondary" onClick={() => scrollToSection?.(2)}>
+                Смотреть проекты
+              </MagneticButton>
+            </div>
+          </div>
         </div>
       </div>
     </section>
